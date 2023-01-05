@@ -1,23 +1,29 @@
-
 import sys
 sys.path.append("./packages")
 
+#外部包
 import uvicorn
-from fastapi import FastAPI
-import config 
-import index
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
+from starlette.staticfiles import StaticFiles
+from starlette.templating import Jinja2Templates
+
+#自定义包
+import config 
 
 
 conf = config.Settings()
 
+index = Jinja2Templates("public")
 
 app = FastAPI()
+#app.mount("/public",StaticFiles(directory='public'),name="public")
 
-@app.get("/", response_class=HTMLResponse)
-async def root():
-    return index.index_html
 
+
+@app.get("/")
+async def root(request: Request):
+    return index.TemplateResponse("index.html",{"request": request})
 
 
 
