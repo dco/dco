@@ -11,6 +11,7 @@ from fastapi.responses import HTMLResponse
 
 conf = config.Settings()
 
+
 app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)
