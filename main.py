@@ -11,15 +11,12 @@ from starlette.templating import Jinja2Templates
 #自定义包
 import config 
 
-
 conf = config.Settings()
 
 index = Jinja2Templates("docs")
 
 app = FastAPI()
 #app.mount("/public",StaticFiles(directory='public'),name="public")
-
-
 
 @app.get("/")
 async def root(request: Request):
