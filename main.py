@@ -14,7 +14,7 @@ import config
 
 conf = config.Settings()
 
-index = Jinja2Templates("public")
+index = Jinja2Templates("docs")
 
 app = FastAPI()
 #app.mount("/public",StaticFiles(directory='public'),name="public")
