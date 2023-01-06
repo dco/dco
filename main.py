@@ -16,7 +16,7 @@ conf = config.Settings()
 index = Jinja2Templates("docs")
 
 app = FastAPI()
-#app.mount("/public",StaticFiles(directory='public'),name="public")
+app.mount("/docs",StaticFiles(directory='docs'),name="docs")
 
 @app.get("/")
 async def root(request: Request):
