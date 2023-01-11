@@ -9,10 +9,10 @@ from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
 #自定义包
-import config 
+from build.dco import config 
 
 conf = config.Settings()
-
+print(conf.app_name)
 index = Jinja2Templates("docs")
 
 app = FastAPI()
